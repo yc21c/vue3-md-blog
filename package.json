@@ -15,7 +15,7 @@
     "url": "https://github.com/yeikiu/vue3-md-blog.git"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "vue-tsc --noEmit && vite build --base=/vue3-md-blog/",
     "preview": "vite preview",
     "generate:index": "npx ts-node ./scripts/generate_index.ts"
