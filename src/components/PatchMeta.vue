@@ -6,11 +6,12 @@
 import { onMounted, defineComponent } from 'vue'
 
 const defaultMetas = {
-  siteName: 'vue3-md-blog',
+  siteName: 'APPRZ Blog',
   title: 'Minimal Vue3 + Markdown blog engine',
   description: 'Simply fork and deploy!',
-  previewUrl: 'https://github.com/yeikiu/vue3-md-blog/blob/master/src/assets/logo.png?raw=true',
-  shareUrl: 'https://yeikiu.github.io/vue3-md-blog/#/'
+  previewUrl:
+    'https://github.com/yc21c/vue3-md-blog/blob/master/src/assets/logo.png?raw=true',
+  shareUrl: 'https://blog.apprz.net/#/',
 }
 
 const patchMeta = ({
@@ -18,14 +19,16 @@ const patchMeta = ({
   title = defaultMetas.title,
   description = defaultMetas.description,
   previewUrl = defaultMetas.previewUrl,
-  shareUrl = defaultMetas.shareUrl
+  shareUrl = defaultMetas.shareUrl,
 }) => {
   // Patch title
   const [titleEl] = document.getElementsByTagName('title')
   titleEl.textContent = `${siteName} | ${title} - ${description}`
 
   // Patch META
-  Array.from(document.getElementsByClassName('APP_META')).forEach(el => { el.remove() })
+  Array.from(document.getElementsByClassName('APP_META')).forEach((el) => {
+    el.remove()
+  })
   const APP_META = `<meta class="APP_META" property="og:title" content="${title}">
       <meta class="APP_META" property="og:description" content="${description}">
       <meta class="APP_META" property="og:image" content="${previewUrl}">
@@ -41,29 +44,29 @@ export default defineComponent({
   props: {
     siteName: {
       type: String,
-      default: defaultMetas.siteName
+      default: defaultMetas.siteName,
     },
     title: {
       type: String,
-      default: defaultMetas.title
+      default: defaultMetas.title,
     },
     description: {
       type: String,
-      default: defaultMetas.description
+      default: defaultMetas.description,
     },
     previewUrl: {
       type: String,
-      default: defaultMetas.previewUrl
+      default: defaultMetas.previewUrl,
     },
     shareUrl: {
       type: String,
-      default: defaultMetas.shareUrl
-    }
+      default: defaultMetas.shareUrl,
+    },
   },
-  setup (props) {
+  setup(props) {
     onMounted(() => {
       patchMeta(props)
     })
-  }
+  },
 })
 </script>
