@@ -18,7 +18,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vue-tsc --noEmit && vite build --base=/vue3-md-blog/",
     "preview": "vite preview",
-    "generate:index": "npx ts-node ./scripts/generate_index.ts"
+    "generate:index": "npx ts-node ./scripts/generate_index.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
