@@ -1,9 +1,6 @@
 <template>
   <PatchMeta />
-  <NavBar
-    :title="'📝 vue3-md-blog'"
-    :sections="blogSections"
-  />
+  <NavBar :title="'APPRZ BLOG'" :sections="blogSections" />
   <Suspense>
     <template #default>
       <router-view />
@@ -29,11 +26,11 @@ export default defineComponent({
     PatchMeta,
     Loader,
     NavBar,
-    Footer
+    Footer,
   },
-  setup () {
+  setup() {
     const blogSections = inject('blogSections', {})
     return { blogSections }
-  }
+  },
 })
 </script>
