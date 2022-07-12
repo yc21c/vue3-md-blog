@@ -1,5 +1,13 @@
 [
     {
+        "id": "new-blog-post",
+        "section": "guide",
+        "date": "February 11, 2020",
+        "title": "Test!!!",
+        "description": "1.- Get your own repo Login TESTETSTETZTET!!!",
+        "url": "blog_store/posts/guide/new-blog-post.md"
+    },
+    {
         "id": "setup-yor-own-blog",
         "section": "guide",
         "date": "February 11, 2020",
