@@ -21,7 +21,9 @@
           <div class="flex items-center space-x-3">
             <div
               class="h-8 w-8 rounded-full bg-slate-400 bg-cover bg-center"
-              :class="`bg-[url('./assets/${entry.section}-logo.png')]`"
+              :style="{
+                backgroundImage: `url('https://raw.githubusercontent.com/yc21c/vue3-md-blog/master/src/assets/${entry.section}-logo.png')`,
+              }"
             ></div>
             <div class="text-lg font-bold text-slate-700">
               <router-link
