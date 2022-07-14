@@ -15,17 +15,17 @@
       <div
         v-for="entry in pageStatus.visiblePosts"
         :key="entry.id"
-        class="rounded-md border p-5 mb-6 shadow-sm w-full bg-white"
+        class="rounded-sm border p-5 mb-6 shadow-sm w-full bg-white"
       >
-        <div class="flex w-full items-center justify-between border-b pb-3">
+        <div class="flex w-full items-center justify-between pb-1">
           <div class="flex items-center space-x-3">
             <div
               class="h-8 w-8 rounded-full bg-slate-400 bg-cover bg-center"
               :style="{
-                backgroundImage: `url('https://raw.githubusercontent.com/yc21c/vue3-md-blog/master/src/assets/${entry.section}-logo.png')`,
+                backgroundImage: `url('${REPO_ASSET_URL}${entry.section}-logo.png')`,
               }"
             ></div>
-            <div class="text-lg font-bold text-slate-700">
+            <div class="text-xl font-normal text-slate-700">
               <router-link
                 :to="`/${entry.section}/${entry.id}`"
                 class="text-reset"
@@ -99,7 +99,7 @@ import paginate from '../utils/paginate'
 import { PostIndex } from '../types/PostIndex'
 import blogConfig from '../blog_config'
 
-const { VUE_APP_POSTS_PER_PAGE } = blogConfig
+const { VUE_APP_POSTS_PER_PAGE, REPO_ASSET_URL } = blogConfig
 
 export default defineComponent({
   components: {
@@ -147,6 +147,7 @@ export default defineComponent({
     return {
       ...toRefs(state),
       pageStatus,
+      REPO_ASSET_URL,
     }
   },
 })

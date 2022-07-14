@@ -1,6 +1,6 @@
 <template>
   <PatchMeta />
-  <NavBar :title="'APPRZ BLOG'" :sections="blogSections" />
+  <NavBar :title="'YC DEVELOG'" :sections="blogSections" />
   <Suspense>
     <template #default>
       <router-view />
@@ -34,3 +34,13 @@ export default defineComponent({
   },
 })
 </script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body {
+  line-height: 1;
+  font-family: 'Noto Sans KR', sans-serif, ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+</style>
