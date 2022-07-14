@@ -1,64 +1,29 @@
 <template>
   <nav
-    class="navbar navbar-expand-md navbar-light mb-0"
-    :style="`background-color: ${VUE_APP_NAVBAR_BG_CSS_COLOR}; color: ${VUE_APP_NAVBAR_TEXT_CSS_COLOR};`"
+    class="bg-white dark:bg-black dark:text-white flex flex-col md:flex-row items-center md:justify-between px-6 py-4 border-b border-b-gray-60 shadow-sm max-w-screen-full mx-auto"
   >
-    <router-link
-      class="navbar-brand"
-      :to="'/'"
-      :style="`color: ${VUE_APP_NAVBAR_TEXT_CSS_COLOR};`"
-    >
-      {{ title }}
-    </router-link>
-    <button
-      :class="`navbar-toggler ${collapseMenu ? 'collapsed' : ''}`"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      :aria-expanded="!collapseMenu"
-      aria-label="Toggle navigation"
-      @click="collapseMenu = !collapseMenu"
-    >
-      <span
-        class="navbar-toggler-icon"
-        :style="`background-color: ${VUE_APP_NAVBAR_TEXT_CSS_COLOR};`"
-      />
-    </button>
-
-    <div
-      id="navbarNavDropdown"
-      :class="`navbar-collapse collapse ${collapseMenu ? '' : 'show'}`"
-    >
-      <ul class="ml-auto mr-5 pr-5 navbar-nav">
-        <li :class="`nav-item dropleft dropdown ${showDropdown ? 'show' : ''}`">
-          <a
-            id="navbarDropdownMenuLink"
-            :style="`color: ${VUE_APP_NAVBAR_TEXT_CSS_COLOR};`"
-            class="nav-link dropdown-toggle"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            :aria-expanded="showDropdown"
-            @click.prevent="showDropdown = !showDropdown"
-          >
-            Sections
-          </a>
-          <div
-            :class="`dropdown-menu ${showDropdown ? 'show' : ''}`"
-            style="max-height: 200px; overflow: scroll;"
-          >
-            <router-link
-              v-for="(count, section) of sections"
-              :key="section"
-              class="dropdown-item text-capitalize"
-              :to="section === 'all' ? '/' : `/${section}`"
-              @click="showDropdown=false"
-            >
-              {{ section }} ({{ count }})
-            </router-link>
-          </div>
-        </li>
+    <!-- Logo -->
+    <div>
+      <h2 class="text-3xl font-bold">
+        <router-link class="navbar-brand" :to="'/'">
+          <span class="text-gray-600">
+            {{ title }}
+          </span>
+        </router-link>
+      </h2>
+    </div>
+    <!-- /End Logo -->
+    <div class="mt-5 md:mt-0">
+      <ul
+        class="flex flex-col md:flex-row md:space-x-5 w-full items-center text-sm"
+      >
+        <router-link
+          v-for="(count, section) of sections"
+          :key="section"
+          :to="section === 'all' ? '/' : `/${section}`"
+        >
+          <a>{{ section }} ({{ count }}) </a>
+        </router-link>
       </ul>
     </div>
   </nav>
@@ -67,29 +32,22 @@
 <script language="ts">
 import { defineComponent, ref } from 'vue'
 
-const { VUE_APP_NAVBAR_BG_CSS_COLOR = 'black', VUE_APP_NAVBAR_TEXT_CSS_COLOR = 'white' } = {}
-
 export default defineComponent({
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     sections: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
-  setup () {
+  setup() {
     const showDropdown = ref(false)
-    const collapseMenu = ref(true)
-
     return {
       showDropdown,
-      collapseMenu,
-      VUE_APP_NAVBAR_BG_CSS_COLOR,
-      VUE_APP_NAVBAR_TEXT_CSS_COLOR
     }
-  }
+  },
 })
 </script>

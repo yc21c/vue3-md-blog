@@ -1,22 +1,19 @@
 <template>
   <PatchMeta :title="title" />
-  <div class="container my-4 my-md-5">
-    <span
-      class="markdown-body"
-      :style="`background-color: ${VUE_APP_MAIN_BG_CSS_COLOR}; color: ${VUE_APP_MAIN_TEXT_CSS_COLOR};`"
-      v-html="postHtml"
-    />
-    <button
-      type="button"
-      :style="`color: ${VUE_APP_MAIN_TEXT_CSS_COLOR};`"
-      class="border btn mt-4"
-      @click="hasHistory() ? router.go(-1) : router.push('/')"
-    >
-      &laquo; Back
-    </button>
+  <div class="max-w-5xl mx-auto px-4 py-12 sm:px-6 md:px-8">
+    <div class="container mx-auto my-4 my-md-5">
+      <span class="markdown-body" v-html="postHtml" />
+      <button
+        class="px-4 py-2 mt-4 rounded-md text-sm font-medium border focus:outline-none focus:ring transition text-gray-600 border-gray-600 hover:text-white hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300"
+        type="button"
+        @click="hasHistory() ? router.go(-1) : router.push('/')"
+      >
+        &laquo; Back
+      </button>
+    </div>
   </div>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent, inject } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
 import router from '../router'
@@ -27,24 +24,23 @@ import { PostIndex } from '../types/PostIndex'
 import PatchMeta from '../components/PatchMeta.vue'
 import blogConfig from '../blog_config'
 
-const { VUE_APP_MAIN_BG_CSS_COLOR, VUE_APP_MAIN_TEXT_CSS_COLOR } = blogConfig
 const markDownIt = new MarkdownIt({ html: true }).use(emoji)
 
 export default defineComponent({
   components: {
-    PatchMeta
+    PatchMeta,
   },
   props: {
     section: {
       type: String,
-      default: ''
+      default: '',
     },
     id: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
-  async setup (props) {
+  async setup(props) {
     /* Hacky navigation when a href link is clicked within the compiled html Post */
     onBeforeRouteUpdate(() => {
       location.reload()
@@ -67,9 +63,7 @@ export default defineComponent({
       postHtml,
       router,
       title,
-      VUE_APP_MAIN_BG_CSS_COLOR,
-      VUE_APP_MAIN_TEXT_CSS_COLOR
     }
-  }
+  },
 })
 </script>

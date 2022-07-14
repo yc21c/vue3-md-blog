@@ -1,86 +1,91 @@
 <template>
-  <PatchMeta :title="section ? section : 'Minimal Vue3 + Markdown blog engine'" />
+  <PatchMeta
+    :title="section ? section : 'Minimal Vue3 + Markdown blog engine'"
+  />
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+    <div class="container px-4 mx-auto mt-8">
+      <!-- HEADER -->
+      <BlogHeader class="mb-5" />
 
-  <div :style="`background-color: ${VUE_APP_MAIN_BG_CSS_COLOR}; color: ${VUE_APP_MAIN_TEXT_CSS_COLOR};`">
-    <!-- HEADER -->
-    <BlogHeader class="mb-5" />
-
-    <hr v-if="section">
-    <p
-      v-if="section"
-      class="text-center display-4 text-capitalize my-5"
-    >
-      {{ section }}
-    </p>
-
-    <div
-      v-for="entry in pageStatus.visiblePosts"
-      :key="entry.id"
-      class="container markdown-body p-3 p-md-4"
-    >
-      <!-- TITLE -->
-      <router-link
-        :to="`/${entry.section}/${entry.id}`"
-        class="text-reset"
-      >
-        <h3 class="text-left m-0 p-0">
-          {{ entry.title }}
-        </h3>
-      </router-link>
-
-      <!-- POST DETAILS -->
-      <p
-        class="font-weight-light font-italic m-0 p-0"
-        :class="!section ? 'text-right':'mb-3'"
-      >
-        {{ entry.date }}
+      <hr v-if="section" />
+      <p v-if="section" class="text-center display-4 text-capitalize my-5">
+        {{ section }}
       </p>
-      <router-link
-        v-if="!section"
-        :to="`/${entry.section}`"
-        class="text-reset"
-      >
-        <h6 class="m-0 p-0 text-right font-weight-bold">
-          #{{ entry.section }}
-        </h6>
-      </router-link>
 
-      <!-- POST INTRO -->
-      <p class="font-weight-light mt-1">
-        {{ entry.description }}
-      </p>
+      <div
+        v-for="entry in pageStatus.visiblePosts"
+        :key="entry.id"
+        class="rounded-md border p-5 mb-6 shadow-sm w-full bg-white"
+      >
+        <div class="flex w-full items-center justify-between border-b pb-3">
+          <div class="flex items-center space-x-3">
+            <div
+              class="h-8 w-8 rounded-full bg-slate-400 bg-cover bg-center"
+              :class="`bg-[url('./assets/${entry.section}-logo.png')]`"
+            ></div>
+            <div class="text-lg font-bold text-slate-700">
+              <router-link
+                :to="`/${entry.section}/${entry.id}`"
+                class="text-reset"
+              >
+                {{ entry.title }}
+              </router-link>
+            </div>
+          </div>
+          <div class="flex items-center space-x-8">
+            <router-link
+              v-if="!section"
+              :to="`/${entry.section}`"
+              class="text-reset"
+            >
+              <button
+                class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs font-semibold"
+              >
+                {{ entry.section }}
+              </button>
+            </router-link>
+            <div class="text-xs text-neutral-500">{{ entry.date }}</div>
+          </div>
+        </div>
+
+        <div class="mt-6 mb-2">
+          <div class="text-sm text-neutral-600">
+            {{ entry.description }}
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGINATION -->
+      <ul
+        v-if="pageStatus.endPage > pageStatus.startPage"
+        class="flex pl-0 list-none rounded my-2 pagination"
+        style="cursor: pointer"
+      >
+        <li
+          class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-700 border-r-0 ml-0 rounded-l hover:bg-gray-200"
+          :class="currentPage == pageStatus.startPage ? 'active' : ''"
+          @click="currentPage = pageStatus.startPage"
+        >
+          <a class="page-link">{{ pageStatus.startPage }}</a>
+        </li>
+        <li
+          v-for="(page, index) in pageStatus.midPages"
+          :key="index"
+          class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-700 border-r-0 hover:bg-gray-200"
+          :class="currentPage == page ? 'active' : ''"
+          @click="currentPage = page"
+        >
+          <a class="page-link">{{ page }}</a>
+        </li>
+        <li
+          class="relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-gray-700 rounded-r hover:bg-gray-200"
+          :class="currentPage == pageStatus.endPage ? 'active' : ''"
+          @click="currentPage = pageStatus.endPage"
+        >
+          <a class="page-link" href="#">{{ pageStatus.endPage }}</a>
+        </li>
+      </ul>
     </div>
-
-    <!-- PAGINATION -->
-    <ul
-      v-if="pageStatus.endPage > pageStatus.startPage"
-      class="pagination justify-content-center mb-5 pb-5"
-      style="cursor: pointer;"
-    >
-      <li
-        class="page-item"
-        :class="currentPage == pageStatus.startPage ? 'active':''"
-        @click="currentPage = pageStatus.startPage"
-      >
-        <a class="page-link"> {{ pageStatus.startPage }}</a>
-      </li>
-      <li
-        v-for="(page, index) in pageStatus.midPages"
-        :key="index"
-        class="page-item"
-        :class="currentPage == page ? 'active':''"
-        @click="currentPage = page"
-      >
-        <a class="page-link">{{ page }}</a>
-      </li>
-      <li
-        class="page-item"
-        :class="currentPage == pageStatus.endPage ? 'active':''"
-        @click="currentPage = pageStatus.endPage"
-      >
-        <a class="page-link">{{ pageStatus.endPage }}</a>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -92,31 +97,40 @@ import paginate from '../utils/paginate'
 import { PostIndex } from '../types/PostIndex'
 import blogConfig from '../blog_config'
 
-const { VUE_APP_POSTS_PER_PAGE, VUE_APP_MAIN_BG_CSS_COLOR, VUE_APP_MAIN_TEXT_CSS_COLOR } = blogConfig
+const { VUE_APP_POSTS_PER_PAGE } = blogConfig
 
 export default defineComponent({
   components: {
     PatchMeta,
-    BlogHeader
+    BlogHeader,
   },
   props: {
     section: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
-  setup (props) {
+  setup(props) {
     const postsIndex: PostIndex[] = inject<PostIndex[]>('postsIndex', [])
     const state = reactive({
-      currentPage: 1
+      currentPage: 1,
     })
 
     const pageStatus = computed(() => {
-      const categoryPosts = props.section ? postsIndex.filter(({ section }) => section === props.section) : postsIndex
-      const { startPage, endPage, startIndex, endIndex } = paginate(categoryPosts.length, state.currentPage, VUE_APP_POSTS_PER_PAGE)
-      const prev = state.currentPage - 1 >= startPage ? state.currentPage - 1 : 0
+      const categoryPosts = props.section
+        ? postsIndex.filter(({ section }) => section === props.section)
+        : postsIndex
+      const { startPage, endPage, startIndex, endIndex } = paginate(
+        categoryPosts.length,
+        state.currentPage,
+        VUE_APP_POSTS_PER_PAGE
+      )
+      const prev =
+        state.currentPage - 1 >= startPage ? state.currentPage - 1 : 0
       const next = state.currentPage + 1 <= endPage ? state.currentPage + 1 : 0
-      const midPages = [prev, state.currentPage, next].filter(p => p > startPage && p < endPage)
+      const midPages = [prev, state.currentPage, next].filter(
+        (p) => p > startPage && p < endPage
+      )
 
       const visiblePosts = categoryPosts.slice(startIndex, endIndex + 1)
 
@@ -124,16 +138,19 @@ export default defineComponent({
         startPage,
         midPages,
         endPage,
-        visiblePosts
+        visiblePosts,
       }
     })
 
     return {
       ...toRefs(state),
       pageStatus,
-      VUE_APP_MAIN_BG_CSS_COLOR,
-      VUE_APP_MAIN_TEXT_CSS_COLOR
     }
-  }
+  },
 })
 </script>
+<style scoped>
+.pagination .active {
+  background-color: #f3f3f3;
+}
+</style>
