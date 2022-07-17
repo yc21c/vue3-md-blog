@@ -35,6 +35,7 @@ export default defineComponent({
 })
 </script>
 <style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-light.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 body {
   line-height: 1;

@@ -1,10 +1,10 @@
 <template>
   <PatchMeta :title="title" />
-  <div class="max-w-5xl mx-auto px-4 py-12 sm:px-6 md:px-8">
+  <div class="max-w-5xl px-4 py-12 mx-auto sm:px-6 md:px-8">
     <div class="container mx-auto my-4 my-md-5">
       <span class="markdown-body" v-html="postHtml" />
       <button
-        class="px-4 py-2 mt-4 rounded-md text-sm font-medium border focus:outline-none focus:ring transition text-gray-600 border-gray-600 hover:text-white hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300"
+        class="px-4 py-2 mt-4 text-sm font-medium text-gray-600 transition border border-gray-600 rounded-md focus:outline-none focus:ring hover:text-white hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300"
         type="button"
         @click="hasHistory() ? router.go(-1) : router.push('/')"
       >
@@ -20,11 +20,12 @@ import router from '../router'
 import axios from 'redaxios'
 import MarkdownIt from 'markdown-it'
 import emoji from 'markdown-it-emoji'
+import highlightjs from 'markdown-it-highlightjs'
 import { PostIndex } from '../types/PostIndex'
 import PatchMeta from '../components/PatchMeta.vue'
 import blogConfig from '../blog_config'
 
-const markDownIt = new MarkdownIt({ html: true }).use(emoji)
+const markDownIt = new MarkdownIt({ html: true }).use(highlightjs).use(emoji)
 
 export default defineComponent({
   components: {

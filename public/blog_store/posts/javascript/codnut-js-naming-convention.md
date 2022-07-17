@@ -4,7 +4,7 @@
 
 ## 참고
 
-https://github.com/airbnb/javascript
+<https://github.com/airbnb/javascript>
 Airbnb 참고 하였습니다.
 
 > es-lint 와 prettier 만으론 잘 안되는 부분 위주로 기록하고 있습니다. - updated 2022-07-04
@@ -17,7 +17,7 @@ Airbnb 참고 하였습니다.
 - var 사용금지
   why? : 이걸 설명해야 안다면 코드넛 퇴사!
 
-```javascript
+```js
 // bad
 var a = 1
 var b = 2
@@ -30,7 +30,7 @@ const b = 2
 - 세미콜론(;) 사용금지
   why? : 쓸데없고 길어지니까
 
-```javascript
+```js
 // bad
 const item = {}
 
