@@ -20,12 +20,12 @@
         <div class="flex w-full items-center justify-between pb-1">
           <div class="flex items-center space-x-3">
             <div
-              class="h-8 w-8 rounded-full bg-slate-400 bg-cover bg-center"
+              class="h-8 w-8 min-w-[32px] rounded-full bg-slate-400 bg-cover bg-center"
               :style="{
                 backgroundImage: `url('${REPO_ASSET_URL}${entry.section}-logo.png')`,
               }"
             ></div>
-            <div class="text-xl font-normal text-slate-700">
+            <div class="sm:text-xl text-sm font-normal text-slate-700">
               <router-link
                 :to="`/${entry.section}/${entry.id}`"
                 class="text-reset"
@@ -41,7 +41,7 @@
               class="text-reset"
             >
               <button
-                class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs font-semibold"
+                class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs font-semibold hidden sm:inline-block"
               >
                 {{ entry.section }}
               </button>
