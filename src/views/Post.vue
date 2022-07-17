@@ -1,7 +1,7 @@
 <template>
   <PatchMeta :title="title" />
   <div class="max-w-5xl px-4 py-12 mx-auto sm:px-6 md:px-8">
-    <div class="container mx-auto my-4 my-md-5">
+    <div class="container mx-auto my-4 list-disc my-md-5">
       <span class="markdown-body" v-html="postHtml" />
       <button
         class="px-4 py-2 mt-4 text-sm font-medium text-gray-600 transition border border-gray-600 rounded-md focus:outline-none focus:ring hover:text-white hover:bg-gray-600 active:bg-gray-700 focus:ring-gray-300"
