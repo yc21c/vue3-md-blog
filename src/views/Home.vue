@@ -7,55 +7,101 @@
       <!-- HEADER -->
       <BlogHeader class="mb-5" />
 
-      <hr v-if="section" />
-      <p v-if="section" class="my-5 text-center display-4 text-capitalize">
-        {{ section }}
-      </p>
-
-      <div
-        v-for="entry in pageStatus.visiblePosts"
-        :key="entry.id"
-        class="w-full p-5 mb-6 bg-white border rounded-sm shadow-sm"
-      >
-        <div class="flex items-center justify-between w-full pb-1">
-          <div class="flex items-center space-x-3">
-            <div
-              class="h-8 w-8 min-w-[32px] rounded-md bg-contain bg-center border-none"
-              :style="{
-                backgroundImage: `url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${entry.section}/${entry.section}-original.svg')`,
-              }"
-            ></div>
-            <div class="text-sm font-normal sm:text-xl text-slate-700">
-              <router-link
-                :to="`/${entry.section}/${entry.id}`"
-                class="text-reset"
-              >
-                {{ entry.title }}
-              </router-link>
-            </div>
-          </div>
-          <div class="flex items-center space-x-8">
+      <!-- Breadcrumb -->
+      <nav v-if="section" class="flex mb-8" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 list-none md:space-x-3">
+          <li class="inline-flex items-center">
             <router-link
-              v-if="!section"
-              :to="`/${entry.section}`"
+              to="/"
+              class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            >
+              <svg
+                class="w-4 h-4 mr-2"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                ></path>
+              </svg>
+              all
+            </router-link>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg
+                class="w-6 h-6 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <router-link
+                :to="`/${section}`"
+                class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                >{{ section }}</router-link
+              >
+            </div>
+          </li>
+        </ol>
+      </nav>
+
+      <ol
+        class="relative list-none border-l border-gray-200 dark:border-gray-700"
+      >
+        <li
+          v-for="entry in pageStatus.visiblePosts"
+          :key="entry.id"
+          class="mb-10 ml-4"
+        >
+          <div
+            class="absolute w-6 h-6 mt-0.5 bg-gray-200 border-white border-2 rounded-full -left-3 dark:border-gray-900 dark:bg-gray-700 bg-no-repeat"
+            :style="{
+              backgroundImage: `url('${REPO_ASSET_URL}${entry.section}-original.svg')`,
+              backgroundSize: '100%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'none',
+            }"
+          ></div>
+          <time
+            class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+            >{{ entry.date }}</time
+          >
+          <h3 class="my-2 font-semibold text-black text-md dark:text-white">
+            <router-link
+              :to="`/${entry.section}/${entry.id}`"
               class="text-reset"
             >
-              <button
-                class="hidden px-3 py-1 text-xs font-semibold border rounded-2xl bg-neutral-100 sm:inline-block"
-              >
-                {{ entry.section }}
-              </button>
+              {{ entry.title }}
             </router-link>
-            <div class="text-xs text-neutral-500">{{ entry.date }}</div>
-          </div>
-        </div>
-
-        <div class="mt-6 mb-2">
-          <div class="text-sm text-neutral-600">
-            {{ entry.description }}
-          </div>
-        </div>
-      </div>
+          </h3>
+          <p class="mb-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+            <router-link
+              :to="`/${entry.section}/${entry.id}`"
+              class="text-reset"
+            >
+              {{ entry.description }}
+            </router-link>
+          </p>
+          <router-link
+            v-if="!section"
+            :to="`/${entry.section}`"
+            class="text-reset"
+          >
+            <button
+              class="hidden px-3 py-1 text-xs font-semibold border rounded-2xl bg-neutral-100 sm:inline-block"
+            >
+              {{ entry.section }}
+            </button>
+          </router-link>
+        </li>
+      </ol>
 
       <!-- PAGINATION -->
       <ul
