@@ -24,6 +24,22 @@
         "url": "blog_store/posts/javascript/setup-yor-own-blog.md"
     },
     {
+        "id": "node-test",
+        "section": "nodejs",
+        "date": "February 11, 2020",
+        "title": "노드 아이콘 테스트",
+        "description": "1.- Get your own repo 스크린샷 2022-07-14 오후 1 21 23 BMW 코리아가 고성능 럭셔리 스포츠카 '뉴 M850i 쿠페·그란 쿠페'를 국내에 공식 출시했습니다. BMW 뉴 M850i xDrive 쿠페 및 그란 쿠페는 BMW 그룹의 럭셔리 퍼포먼스 부문 노하우가 집약된 플래그십 럭셔리 스포츠카 뉴 8시리즈의 고성능 모델인데요. 뉴 8시리즈의 럭셔리하고 스포티한 감각에 BMW M 퍼포먼스 라인업 특유의 다이내믹한 주행 성능이 더해진 것이 특징입니다.",
+        "url": "blog_store/posts/nodejs/node-test.md"
+    },
+    {
+        "id": "svelte-test",
+        "section": "svelte",
+        "date": "February 11, 2020",
+        "title": "스벨트 아이콘 테스트",
+        "description": "1.- Get your own repo 스크린샷 2022-07-14 오후 1 21 23 BMW 코리아가 고성능 럭셔리 스포츠카 '뉴 M850i 쿠페·그란 쿠페'를 국내에 공식 출시했습니다. BMW 뉴 M850i xDrive 쿠페 및 그란 쿠페는 BMW 그룹의 럭셔리 퍼포먼스 부문 노하우가 집약된 플래그십 럭셔리 스포츠카 뉴 8시리즈의 고성능 모델인데요. 뉴 8시리즈의 럭셔리하고 스포티한 감각에 BMW M 퍼포먼스 라인업 특유의 다이내믹한 주행 성능이 더해진 것이 특징입니다.",
+        "url": "blog_store/posts/svelte/svelte-test.md"
+    },
+    {
         "id": "post-with-a-simple-git-commit",
         "section": "javascript",
         "date": "February 09, 2020",
