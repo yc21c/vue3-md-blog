@@ -4,7 +4,7 @@
         "section": "javascript",
         "date": "February 11, 2020",
         "title": "코드넛 자바스크립트 네이밍 컨벤션",
-        "description": "참고 https://github.com/airbnb/javascript Airbnb 참고 하였습니다. es-lint 와 prettier 만으론 잘 안되는 부분 위주로 기록하고 있습니다. - updated 2022-07-04 아직 작성중 문서 입니다. 앞으로도 지속적으로 추가 될 예정이며 건의하실 부분 있으시면 언제든 건의 해주세요. by 김유철 코드넛 기술이사 기본 var 사용금지 why? : 이걸 설명해야 안다면 코드넛 퇴사! // bad var a = 1 var b = 2 // good const a = 1 const...",
+        "description": "참고 Airbnb 참고 하였습니다. es-lint 와 prettier 만으론 잘 안되는 부분 위주로 기록하고 있습니다. - updated 2022-07-04 아직 작성중 문서 입니다. 앞으로도 지속적으로 추가 될 예정이며 건의하실 부분 있으시면 언제든 건의 해주세요. by 김유철 코드넛 기술이사 기본 var 사용금지 why? : 이걸 설명해야 안다면 코드넛 퇴사! // bad var a = 1 var b = 2 // good const a = 1 const b...",
         "url": "blog_store/posts/javascript/codnut-js-naming-convention.md"
     },
     {
