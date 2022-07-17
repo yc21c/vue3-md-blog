@@ -1,27 +1,27 @@
 [
     {
+        "id": "ubuntu-apt-update",
+        "section": "ubuntu",
+        "date": "July 18, 2022",
+        "title": "Ubuntu apt update error",
+        "description": "우분투 업데이트가 늦었을때 sudo apt update 404  Not Found [IP: 91.189.91.124 80] 요딴 에러가 나올경우 sudo vim /etc/apt/sources.list 서버주소를 다음과 같이 바꿔준다 vim 의 문자열 바꾸는 명령어 %s 사용 :%s/ports.ubuntu.com/old-releases.ubuntu.com :%s/ubuntu-ports/ubuntu 주소는 버전마다 다를수 있음. 결과적으로 http://old-releases.ubuntu.com/ubuntu/ groovy main universe restricted multiverse 전부 이렇게 바뀌면 된다. 이렇게 하고 sudo apt update sudo apt upgrade 끝",
+        "url": "blog_store/posts/ubuntu/ubuntu-apt-update.md"
+    },
+    {
+        "id": "vite-vue-manual",
+        "section": "vue",
+        "date": "July 18, 2022",
+        "title": "webpack을 대체할 번들링 도구 Vite feat. VUE",
+        "description": "아직도 vue 개발시 느려터진 webpack 으로 번들링 하고 계신가요? 댓츠노노~! 여기 너무 빠르고 가벼운 vite 가 있습니다. $ npm install -g vite $ npm init vite@latest 이렇게 간단하게 먼저 vite 설치 합니돠~ 그럼 이렇게 프로젝트명 쳐주고 어떤 프레임웤 사용할지 물어보쥬? 선택만 해주면 댓츠잇! 스벨트도 있는게 인상적이네요. 스벨트도 써보고 싶드아~ 자 그럼 다음 안내와 같이 이제 웹팩하곤 다를바 없는데 실행하면 1초도 안되서 빌드 되는 신박함....",
+        "url": "blog_store/posts/vue/vite-vue-manual.md"
+    },
+    {
         "id": "codnut-js-naming-convention",
         "section": "javascript",
-        "date": "February 11, 2020",
+        "date": "July 17, 2022",
         "title": "코드넛 자바스크립트 네이밍 컨벤션",
         "description": "참고 Airbnb 참고 하였습니다. es-lint 와 prettier 만으론 잘 안되는 부분 위주로 기록하고 있습니다. - updated 2022-07-04 아직 작성중 문서 입니다. 앞으로도 지속적으로 추가 될 예정이며 건의하실 부분 있으시면 언제든 건의 해주세요. by 김유철 코드넛 기술이사 기본 var 사용금지 why? : 이걸 설명해야 안다면 코드넛 퇴사! // bad var a = 1 var b = 2 // good const a = 1 const b...",
         "url": "blog_store/posts/javascript/codnut-js-naming-convention.md"
-    },
-    {
-        "id": "new-blog-post",
-        "section": "javascript",
-        "date": "February 11, 2020",
-        "title": "한글을 테스트 해봅시다 냥냥냥12233",
-        "description": "1.- Get your own repo 스크린샷 2022-07-14 오후 1 21 23 BMW 코리아가 고성능 럭셔리 스포츠카 '뉴 M850i 쿠페·그란 쿠페'를 국내에 공식 출시했습니다. BMW 뉴 M850i xDrive 쿠페 및 그란 쿠페는 BMW 그룹의 럭셔리 퍼포먼스 부문 노하우가 집약된 플래그십 럭셔리 스포츠카 뉴 8시리즈의 고성능 모델인데요. 뉴 8시리즈의 럭셔리하고 스포티한 감각에 BMW M 퍼포먼스 라인업 특유의 다이내믹한 주행 성능이 더해진 것이 특징입니다.",
-        "url": "blog_store/posts/javascript/new-blog-post.md"
-    },
-    {
-        "id": "setup-yor-own-blog",
-        "section": "javascript",
-        "date": "February 11, 2020",
-        "title": "Setup your own Blog in under 5 minutes",
-        "description": "This tutorial assumes you have the following installed on your system: > - An active GitHub account - GIT - NodeJS 1.- Get your own repo Login into your GitHub account and start a new repo. Use vue3-md-blog as a template Public Dir Structure 2.- Configure your src/blog_config.ts file, i.e: VUEAPPPOSTSPERPAGE: 5, VUEAPPMAINBGCSS_COLOR: 'white', VUEAPPMAINTEXTCSS_COLOR: 'black', 3.- Test locally Make sure your terminal is...",
-        "url": "blog_store/posts/javascript/setup-yor-own-blog.md"
     },
     {
         "id": "node-test",
@@ -38,14 +38,6 @@
         "title": "스벨트 아이콘 테스트",
         "description": "1.- Get your own repo 스크린샷 2022-07-14 오후 1 21 23 BMW 코리아가 고성능 럭셔리 스포츠카 '뉴 M850i 쿠페·그란 쿠페'를 국내에 공식 출시했습니다. BMW 뉴 M850i xDrive 쿠페 및 그란 쿠페는 BMW 그룹의 럭셔리 퍼포먼스 부문 노하우가 집약된 플래그십 럭셔리 스포츠카 뉴 8시리즈의 고성능 모델인데요. 뉴 8시리즈의 럭셔리하고 스포티한 감각에 BMW M 퍼포먼스 라인업 특유의 다이내믹한 주행 성능이 더해진 것이 특징입니다.",
         "url": "blog_store/posts/svelte/svelte-test.md"
-    },
-    {
-        "id": "post-with-a-simple-git-commit",
-        "section": "javascript",
-        "date": "February 09, 2020",
-        "title": "Post with a simple GIT commit 🕶",
-        "description": "This tutorial is based on VSCode but any IDE with an integrated shell will do the job. This is me, writing this very line right now Public Dir Structure There is a few interesting things to notice in the image, take a second look. Basically every time you want to create a new post you will need to create a new-post-file.md file following a...",
-        "url": "blog_store/posts/javascript/post-with-a-simple-git-commit.md"
     },
     {
         "id": "embed-youtube-video",
@@ -70,21 +62,5 @@
         "title": "Posts are compiled with markdown-it",
         "description": "You can simply edit your markdown files online and your blog will reflect the changes shortly after. Posts are compiled from Markdown to html in runtime Use inline html with bootstrap classes ready to go within your markdowns Support for GitHub Pages CSS and emojis Features Headings h1 Heading 8-) h2 Heading h3 Heading h4 Heading h5 Heading h6 Heading h1 Heading 8-) h2...",
         "url": "blog_store/posts/features/markdown-posts.md"
-    },
-    {
-        "id": "customise-your-blog",
-        "section": "javascript",
-        "date": "February 9, 2019",
-        "title": "Customise your blog",
-        "description": "TODO WIP",
-        "url": "blog_store/posts/javascript/customise-your-blog.md"
-    },
-    {
-        "id": "use-a-custom-domain-name",
-        "section": "javascript",
-        "date": "February 9, 2019",
-        "title": "Use a custom domain name",
-        "description": "TODO WIP",
-        "url": "blog_store/posts/javascript/use-a-custom-domain-name.md"
     }
 ]
