@@ -74,7 +74,7 @@
               </div>
             </div>
             <div class="self-start flex-auto flex flex-wrap items-baseline p-5 pt-0 pr-0">
-              <h3 class="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-1 lg:pt-0">
+              <h3 class="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-0">
                 {{ entry.title }}
               </h3>
               <div class="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-dark line-clamp-2 text-xs text-gray-500">
@@ -100,7 +100,7 @@
               ></router-link>
             </div>
 
-            <dl class="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
+            <dl class="absolute left-0 top-0 lg:left-auto hidden lg:block lg:right-full lg:mr-[calc(6.5rem+1px)]">
               <dt class="sr-only">Date</dt>
               <dd class="whitespace-nowrap text-sm leading-6 dark:text-slate-400">
                 <time datetime="2022-06-23T19:40:00.000Z">{{ entry.date }}</time>
