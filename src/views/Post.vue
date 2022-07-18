@@ -1,6 +1,6 @@
 <template>
   <PatchMeta :title="title" />
-  <div class="max-w-5xl px-4 py-12 mx-auto sm:px-6 md:px-8">
+  <div class="max-w-4xl px-4 py-12 mx-auto sm:px-6 md:px-8">
     <div class="container mx-auto my-4 list-disc my-md-5">
       <span class="markdown-body" v-html="postHtml" />
       <button
@@ -14,18 +14,18 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject } from 'vue'
-import { onBeforeRouteUpdate } from 'vue-router'
-import router from '../router'
-import axios from 'redaxios'
-import MarkdownIt from 'markdown-it'
-import emoji from 'markdown-it-emoji'
-import highlightjs from 'markdown-it-highlightjs'
-import { PostIndex } from '../types/PostIndex'
-import PatchMeta from '../components/PatchMeta.vue'
-import blogConfig from '../blog_config'
+import { defineComponent, inject } from "vue";
+import { onBeforeRouteUpdate } from "vue-router";
+import router from "../router";
+import axios from "redaxios";
+import MarkdownIt from "markdown-it";
+import emoji from "markdown-it-emoji";
+import highlightjs from "markdown-it-highlightjs";
+import { PostIndex } from "../types/PostIndex";
+import PatchMeta from "../components/PatchMeta.vue";
+import blogConfig from "../blog_config";
 
-const markDownIt = new MarkdownIt({ html: true }).use(highlightjs).use(emoji)
+const markDownIt = new MarkdownIt({ html: true }).use(highlightjs).use(emoji);
 
 export default defineComponent({
   components: {
@@ -34,37 +34,37 @@ export default defineComponent({
   props: {
     section: {
       type: String,
-      default: '',
+      default: "",
     },
     id: {
       type: String,
-      default: '',
+      default: "",
     },
   },
   async setup(props) {
     /* Hacky navigation when a href link is clicked within the compiled html Post */
     onBeforeRouteUpdate(() => {
-      location.reload()
-    })
+      location.reload();
+    });
 
     // Fetch Post markdown and compile it to html
-    const postsIndex: PostIndex[] = inject<PostIndex[]>('postsIndex', [])
-    const { url = '' } = postsIndex.find(({ id }) => id === props.id) || {}
-    const { data: markDownSource } = await axios.get(url)
-    const postHtml = markDownIt.render(markDownSource)
+    const postsIndex: PostIndex[] = inject<PostIndex[]>("postsIndex", []);
+    const { url = "" } = postsIndex.find(({ id }) => id === props.id) || {};
+    const { data: markDownSource } = await axios.get(url);
+    const postHtml = markDownIt.render(markDownSource);
 
     // Patch page title
-    const [, title] = markDownSource.split('#')
+    const [, title] = markDownSource.split("#");
 
     // Back button helper
-    const hasHistory = () => window.history?.length > 2
+    const hasHistory = () => window.history?.length > 2;
 
     return {
       hasHistory,
       postHtml,
       router,
       title,
-    }
+    };
   },
-})
+});
 </script>

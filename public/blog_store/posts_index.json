@@ -24,6 +24,14 @@
         "url": "blog_store/posts/javascript/codnut-js-naming-convention.md"
     },
     {
+        "id": "vscode-shortcut-keys",
+        "section": "vscode",
+        "date": "July 14, 2022",
+        "title": "VSCODE 쓸만한 단축키 모음",
+        "description": "아직도 vue 개발시 느려터진 webpack 으로 번들링 하고 계신가요? 댓츠노노~! 여기 너무 빠르고 가벼운 vite 가 있습니다. $ npm install -g vite $ npm init vite@latest 이렇게 간단하게 먼저 vite 설치 합니돠~ 그럼 이렇게 프로젝트명 쳐주고 어떤 프레임웤 사용할지 물어보쥬? 선택만 해주면 댓츠잇! 스벨트도 있는게 인상적이네요. 스벨트도 써보고 싶드아~ 자 그럼 다음 안내와 같이 이제 웹팩하곤 다를바 없는데 실행하면 1초도 안되서 빌드 되는 신박함....",
+        "url": "blog_store/posts/vscode/vscode-shortcut-keys.md"
+    },
+    {
         "id": "node-test",
         "section": "nodejs",
         "date": "February 11, 2020",
