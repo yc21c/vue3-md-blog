@@ -62,13 +62,15 @@
                   transform-origin: 0% 50% 0px;
                 "
               >
-                <img
-                  :src="`${REPO_ASSET_URL}${entry.section}-original.svg`"
-                  alt=""
-                  loading="lazy"
-                  class="absolute max-w-none"
-                  style="width: 48px; height: 48px; left: 0px; top: 0px; opacity: 1; z-index: 2; transform-origin: 50% 50% 0px"
-                />
+                <router-link :to="`/${entry.section}`" class="text-reset">
+                  <img
+                    :src="`${REPO_ASSET_URL}${entry.section}-original.svg`"
+                    alt=""
+                    loading="lazy"
+                    class="absolute max-w-none hover:scale-95"
+                    style="width: 48px; height: 48px; left: 0px; top: 0px; opacity: 1; z-index: 2; transform-origin: 50% 50% 0px"
+                  />
+                </router-link>
               </div>
             </div>
             <div class="self-start flex-auto flex flex-wrap items-baseline p-5 pt-0 pr-0">
