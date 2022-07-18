@@ -3,16 +3,15 @@
 </template>
 
 <script lang="ts">
-import { onMounted, defineComponent } from 'vue'
+import { onMounted, defineComponent } from "vue";
 
 const defaultMetas = {
-  siteName: 'APPRZ Blog',
-  title: 'Minimal Vue3 + Markdown blog engine',
-  description: 'Simply fork and deploy!',
-  previewUrl:
-    'https://github.com/yc21c/vue3-md-blog/blob/master/src/assets/logo.png?raw=true',
-  shareUrl: 'https://blog.apprz.net/#/',
-}
+  siteName: "YC DEVELOG",
+  title: "Minimal Vue3 + Tailwind blog engine",
+  description: "Simply fork and deploy!",
+  previewUrl: "https://github.com/yc21c/vue3-md-blog/blob/master/src/assets/logo.png?raw=true",
+  shareUrl: "https://blog.apprz.net/#/",
+};
 
 const patchMeta = ({
   siteName = defaultMetas.siteName,
@@ -22,23 +21,23 @@ const patchMeta = ({
   shareUrl = defaultMetas.shareUrl,
 }) => {
   // Patch title
-  const [titleEl] = document.getElementsByTagName('title')
-  titleEl.textContent = `${siteName} | ${title} - ${description}`
+  const [titleEl] = document.getElementsByTagName("title");
+  titleEl.textContent = `${siteName} | ${title} - ${description}`;
 
   // Patch META
-  Array.from(document.getElementsByClassName('APP_META')).forEach((el) => {
-    el.remove()
-  })
+  Array.from(document.getElementsByClassName("APP_META")).forEach((el) => {
+    el.remove();
+  });
   const APP_META = `<meta class="APP_META" property="og:title" content="${title}">
       <meta class="APP_META" property="og:description" content="${description}">
       <meta class="APP_META" property="og:image" content="${previewUrl}">
       <meta class="APP_META" property="og:url" content="${shareUrl}">
       <meta class="APP_META" name="twitter:card" content="summary_large_image">
-      <meta class="APP_META" property="og:site_name" content="${siteName}">`
-  const [headEl] = document.getElementsByTagName('head')
-  if (!headEl) return
-  headEl.innerHTML = `${headEl.innerHTML}${APP_META}`
-}
+      <meta class="APP_META" property="og:site_name" content="${siteName}">`;
+  const [headEl] = document.getElementsByTagName("head");
+  if (!headEl) return;
+  headEl.innerHTML = `${headEl.innerHTML}${APP_META}`;
+};
 
 export default defineComponent({
   props: {
@@ -65,8 +64,8 @@ export default defineComponent({
   },
   setup(props) {
     onMounted(() => {
-      patchMeta(props)
-    })
+      patchMeta(props);
+    });
   },
-})
+});
 </script>
