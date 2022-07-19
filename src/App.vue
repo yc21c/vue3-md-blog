@@ -35,7 +35,7 @@ export default defineComponent({
 })
 </script>
 <style>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-light.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 body {
   line-height: 1;
@@ -43,5 +43,9 @@ body {
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+}
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #23241f;
 }
 </style>
