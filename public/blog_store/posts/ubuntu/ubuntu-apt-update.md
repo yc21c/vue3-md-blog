@@ -14,22 +14,26 @@ sudo apt update
 
 요딴 에러가 나올경우
 
-```
+```bash
 sudo vim /etc/apt/sources.list
 ```
 
 서버주소를 다음과 같이 바꿔준다
 vim 의 문자열 바꾸는 명령어 %s 사용
 
-```
+```bash
 :%s/ports.ubuntu.com/old-releases.ubuntu.com
 :%s/ubuntu-ports/ubuntu
+```
 
 주소는 버전마다 다를수 있음.
 결과적으로
+
+```bash
 http://old-releases.ubuntu.com/ubuntu/ groovy main universe restricted multiverse
-전부 이렇게 바뀌면 된다.
 ```
+
+전부 이렇게 바뀌면 된다.
 
 이렇게 하고
 
