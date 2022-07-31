@@ -36,7 +36,7 @@ export default defineComponent({
 </script>
 <style>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/monokai-sublime.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap'); */
 body {
   line-height: 1;
   font-family: 'Noto Sans KR', sans-serif, ui-sans-serif, system-ui,

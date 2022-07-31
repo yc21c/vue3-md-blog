@@ -5,6 +5,8 @@ import router from './router'
 import axios from 'redaxios'
 import { PostIndex } from './types/PostIndex'
 
+// import './assets/fonts.css'
+
 const dataPath = 'blog_store/posts_index.json'
 
 const loadApp = async () => {

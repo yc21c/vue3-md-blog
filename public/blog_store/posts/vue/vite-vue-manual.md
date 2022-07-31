@@ -8,7 +8,7 @@
 
 > 여기 너무 빠르고 가벼운 vite 가 있습니다.
 
-```
+```bash
 $ npm install -g vite
 $ npm init vite@latest
 ```
