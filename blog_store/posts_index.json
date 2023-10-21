@@ -75,7 +75,7 @@
         "id": "markdown-posts",
         "section": "features",
         "date": "January 7, 2020",
-        "title": "Posts are compiled with markdown-it",
+        "title": "Posts are compiled with markdown-it 1",
         "description": "You can simply edit your markdown files online and your blog will reflect the changes shortly after. Posts are compiled from Markdown to html in runtime Use inline html with bootstrap classes ready to go within your markdowns Support for GitHub Pages...",
         "url": "blog_store/posts/features/markdown-posts.md"
     }
